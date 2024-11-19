@@ -1,4 +1,10 @@
+//Key Terms
+	// 1.	Client: The person or system making the request (you).
+	// 2.	Facade: The client interacts only with the SmartHomeFacade class.
+	// 3.	Subsystems: The complex systems that do the actual work
+
 // Subsystems
+// These subsystems are abstracted and are used in a fashion where the complexities of these subsystems are hidden
 class Light {
     public void turnOn() {
         System.out.println("Light is ON");
@@ -32,6 +38,7 @@ class TV {
 }
 
 // Facade
+//The Facade manages the Light, Fan, TV, and AC subsystems
 class SmartHomeFacade {
     private Light light;
     private Fan fan;
@@ -61,8 +68,11 @@ class SmartHomeFacade {
 }
 
 // Client
+//Client is a system or a person making the request
+//The client (Main class) only interacts with the facade and doesn’t care about how the subsystems work
 public class Main {
     public static void main(String[] args) {
+        //The SmartHomeFacade hides the complexity of interacting with the Light, Fan, and AC.
         SmartHomeFacade smartHome = new SmartHomeFacade();
         smartHome.startMorningRoutine();
         smartHome.stopEverything();
